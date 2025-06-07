@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'LT Superior';
+  src: url('/fonts/lt-superior/LTSuperior-Regular.woff2') format('woff2'),
+       url('/fonts/lt-superior/LTSuperior-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'LT Superior', sans-serif;
+}
+
+.lt-regular {
+  font-family: 'LT Superior', sans-serif;
+  font-weight: 400;
+}
+
+.lt-medium {
+  font-family: 'LT Superior', sans-serif;
+  font-weight: 500;
+}
+
+.lt-semibold {
+  font-family: 'LT Superior', sans-serif;
+  font-weight: 600;
+}
+
+.lt-bold {
+  font-family: 'LT Superior', sans-serif;
+  font-weight: 700;
+}
+
