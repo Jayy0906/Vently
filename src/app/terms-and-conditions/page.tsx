@@ -1,4 +1,3 @@
-
 import Header from "../../../components/TermsAndConditions/Header";
 import Footer from "../../../components/Footer";
 

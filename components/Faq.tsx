@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -62,34 +63,55 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openStates, setOpenStates] = useState(faqs.map(() => false));
+  const [openStates, setOpenStates] = useState(() => {
+    const initialStates = faqs.map(() => false);
+    if (initialStates.length > 0) {
+      initialStates[0] = true;
+    }
+    return initialStates;
+  });
 
-  // Function to toggle the open state of an FAQ item
   const toggleFAQ = (index: number) => {
-    setOpenStates(
-      (prevStates) =>
-        prevStates.map((state, i) => (i === index ? !state : false)) // Only one can be open at a time
+    setOpenStates((prevStates) =>
+      prevStates.map((state, i) => (i === index ? !state : false))
     );
   };
 
+  // If you later need to open specific FAQs via URL hash, you'd re-add a modified version.
+
   return (
     <>
-      <div data-aos="fade-up" className="px-4 md:px-10 lg:px-10 xl:px-10 mt-10 lg:mt-20 2xl:px-12 max-w-[1440px] 2xl:max-w-[1600px]  mx-auto overflow-x-hidden                               ">
+      <div
+        data-aos="fade-up"
+        id="faq" // This ID is for the entire FAQ section, not a specific item to scroll to.
+        className="px-4 md:px-10 lg:px-10 xl:px-10 mt-10 lg:mt-20 2xl:px-12 max-w-[1550px] 2xl:max-w-[1905px]  mx-auto overflow-x-hidden"
+      >
         <div className="flex justify-between items-center  md:mb-10">
           <h1
             data-aos="fade-up"
-            className="text-[25px] md:text-4xl lg:text-[48px] leading-[48px] text-[#010A12] lt-semibold"
+            className="text-[25px] md:text-4xl lg:text-[48px] 2xl:text-[54px] leading-[48px] text-[#010A12] lt-semibold mt-10"
           >
             FAQ
           </h1>
-          <button
-            data-aos="fade-up"
-            type="button"
-            className="hidden md:flex flex items-center gap-2 bg-[#B6E2FB] text-[#010A12] text-[14px] lt-semibold leading-[20px] rounded-lg px-4 py-2 hover:bg-[#A9D4FF] transition cursor-pointer                       "
-          >
-            <span>view all faqs</span>
-            <Image src="/icons/right-up.svg" alt="" width={10} height={16} />
-          </button>
+
+          {/* Updated Link to target the new #page-bottom ID */}
+          <Link href="#page-bottom" scroll={true}>
+            {" "}
+            {/* Changed scroll to true for a smoother scroll to bottom */}
+            <button
+              data-aos="fade-up"
+              type="button"
+              className="hidden md:flex flex items-center gap-2 bg-[#B6E2FB] text-[#010A12] text-[16px] 2xl:text-[18px] lt-semibold leading-[20px] rounded-lg px-4 py-4 hover:bg-[#A9D4FF] transition cursor-pointer"
+            >
+              <span>view all faqs</span>
+              <Image
+                src="/icons/right-up.svg"
+                alt="View all FAQs icon"
+                width={10}
+                height={16}
+              />
+            </button>
+          </Link>
         </div>
 
         <div className="divide-y divide-[#D9D9D9]">
@@ -97,9 +119,9 @@ export default function FAQ() {
             <div key={index} className="py-4 text-[#010A12]">
               <div
                 className="flex justify-between items-start cursor-pointer text-[#010A12]"
-                onClick={() => toggleFAQ(index)} // Attach click handler
+                onClick={() => toggleFAQ(index)}
               >
-                <p className="text-[16px] font-medium leading-[24px] mb-1 lt-semibold text-[#010A12]">
+                <p className="text-[16px] 2xl:text-[18px] font-medium leading-[24px] mb-1 lt-semibold text-[#010A12]">
                   {faq.question}
                 </p>
                 <Image
@@ -110,9 +132,8 @@ export default function FAQ() {
                   className="mt-1 transition-transform duration-300"
                 />
               </div>
-              {/* Conditionally render the answer */}
               {openStates[index] && (
-                <p className="text-[16px] lt-normal leading-[20px] text-[#010A12] max-w-3xl pt-2 pb-1 transition-all duration-300 ease-in-out opacity-100 translate-y-0">
+                <p className="text-[16px] 2xl:text-[18px] lt-normal leading-[20px] text-[#010A12] max-w-3xl pt-2 pb-1 transition-all duration-300 ease-in-out opacity-100 translate-y-0">
                   {faq.answer}
                 </p>
               )}
@@ -139,10 +160,13 @@ export default function FAQ() {
             <br /> Easy Online Booking, Zero Deposit
           </h2>
         </div>
-        <button className="w-full bg-white text-[#010A12] text-[15px] lt-semibold py-3 rounded-xl shadow-md hover:bg-gray-100 transition">
+        <button className="w-full bg-white text-[#010A12] text-[16px] 2xl:text-[18px] lt-semibold py-3 rounded-xl shadow-md hover:bg-gray-100 transition">
           book your installation
         </button>
       </div>
+
+      {/* NEW: Anchor div at the very bottom of the component */}
+      <div id="page-bottom" className="w-full h-px"></div>
     </>
   );
 }

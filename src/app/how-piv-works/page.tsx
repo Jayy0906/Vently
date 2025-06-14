@@ -15,11 +15,15 @@ export default function HowPIVWorks() {
     <>
       <Header />
       <ProductOverview />
-      <div className="mt-14">
+      <div className="mt-18 md:mt-20 lg:mt-14 xl:mt-28 lg:mx-2 xl:mx-0">
         <System />
       </div>
-      <PIVUnit />
-      <Footer />
+      <div className="xl:mt-20 lg:mx-2 xl:mx-0">
+        <PIVUnit />
+      </div>
+      <div className="mt-16 md:mt-24 lg:mt-20 xl:mt-30">
+        <Footer />
+      </div>
     </>
   );
 }

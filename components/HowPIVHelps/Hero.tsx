@@ -20,6 +20,8 @@ const steps = [
     title: "Breathe Easier with Reduced Allergens and Pollutants",
     description:
       "PIV systems use advanced filtration technology to capture pollen, dust mites, pet dander, and fungal spores, dramatically reducing indoor allergens. Ideal for allergy sufferers or anyone sensitive to airborne irritants.",
+    mobileDescription:
+      "Simply answer a few questions about your current heating situation and we’ll give you a call to arrange your free home energy assessment.",
     image: "/images/Allergens and Pollutants.webp",
   },
   {
@@ -41,38 +43,70 @@ const steps = [
 export default function StepsSection() {
   return (
     <>
-      <section data-aos="fade-up" className="w-full px-4 md:px-6 lg:px-12 xl:px-11">
-        <hr data-aos="fade-up" className="border-t border-gray-300 mb-6" />
-        <div className="flex flex-col gap-10 max-w-[1440px] mx-auto">
+      <section
+        data-aos="fade-up"
+        className="w-full px-4 md:px-6 lg:px-12 xl:px-11 2xl:px-12"
+      >
+        <hr
+          data-aos="fade-up"
+          className="border-t border-gray-300 mb-6 mt-12 md:mt-0"
+        />
+        <div className="flex flex-col gap-10 max-w-[1440px] 2xl:max-w-[1905px] mx-auto">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col gap-6">
               {/* <hr> before each step except the first */}
-              {index !== 0 && <hr data-aos="fade-up" className="border-t border-gray-300 " />}
+              {index !== 0 && (
+                <hr data-aos="fade-up" className="border-t border-gray-300 " />
+              )}
 
               <div className="flex flex-col lg:flex-row items-stretch gap-4 w-full mt-4">
                 <div className="flex-1 flex flex-col justify-between">
-                  <h3 data-aos="fade-up" className="text-8xl md:text-7xl lg:text-7xl text-gray-300 lt-semibold">
+                  <h3
+                    data-aos="fade-up"
+                    className="text-8xl text-gray-300 lt-semibold"
+                  >
                     {step.number}
                   </h3>
                   <div className="mt-4 flex flex-col justify-end">
-                    <h4 data-aos="fade-up" className="text-xl md:text-4xl lg:text-[42px] lt-semibold text-[#010A12] xl:max-w-[24ch]">
+                    <h4 className="md:hidden text-xl md:text-4xl lg:text-[42px] 2xl:text-[54px] lt-semibold text-[#010A12] xl:max-w-[24ch]">
                       {step.title}
                     </h4>
-                    <p data-aos="fade-up" className="text-sm text-[#010A12] leading-relaxed max-w-[66ch] mt-2">
-                      {step.description}
+                    <h4
+                      data-aos="fade-up"
+                      className="hidden md:block text-xl md:text-4xl lg:text-[42px] 2xl:text-[54px] lt-semibold text-[#010A12] xl:max-w-[24ch]"
+                    >
+                      {step.title}
+                    </h4>
+                    <p
+                      data-aos="fade-up"
+                      className="text-[17px] 2xl:text-[20px] text-[#010A12] leading-relaxed max-w-[66ch] lg:max-w-[55ch] xl:max-w-[64ch] mt-2"
+                    >
+                      {/* For step 3 (index 2) only */}
+                      {index === 2 ? (
+                        <>
+                          <span className="md:hidden">
+                            {step.mobileDescription}
+                          </span>
+                          <span className="hidden md:block">
+                            {step.description}
+                          </span>
+                        </>
+                      ) : (
+                        step.description
+                      )}
                     </p>
                   </div>
                 </div>
 
-                {/* Right: Image */}
-                <div className="w-full lg:w-[513px] xl:w-auto flex-shrink-0">
-                  <div className="overflow-hidden rounded-xl shadow-md border border-gray-200 h-full">
+                {/* Right: Image with Bottom-Only Shadow */}
+                <div className="w-full lg:w-[513px] xl:w-auto flex-shrink-0 drop-shadow-[30px_5px_30px_rgba(107,114,128,0.1)] md:drop-shadow-[0_90px_50px_rgba(107,114,128,0.25)]">
+                  <div className="overflow-hidden rounded-xl">
                     <Image
                       src={step.image}
                       alt={step.title}
                       width={600}
                       height={600}
-                      className="w-full h-full object-cover"
+                      className="w-full md:h-full h-[360px] object-cover"
                     />
                   </div>
                 </div>

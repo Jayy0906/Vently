@@ -14,7 +14,9 @@ export default function UnderstandTheRisks() {
     <>
       <Header />
       <Hero />
-      <Faq />
+      <div className="lg:mx-8 xl:mx-0">
+        <Faq />
+      </div>
       <Footer />
     </>
   );

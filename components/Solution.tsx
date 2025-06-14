@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useRef, useEffect, useState, useCallback } from "react";
 
@@ -12,7 +13,6 @@ export default function ProvenSolution() {
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  // Renamed to be generic for mouse and touch initial coordinate
   const [initialClientX, setInitialClientX] = useState(0);
   const [initialGalleryScrollLeft, setInitialGalleryScrollLeft] = useState(0);
 
@@ -165,29 +165,28 @@ export default function ProvenSolution() {
 
   return (
     <>
-      <div data-aos="fade-up" className="px-4 md:px-10 lg:px-10 xl:px-10 2xl:px-12  max-w-[1440px] mx-auto 2xl:max-w-[1600px] -mt-20 md:-mt-4 lg:-mt-20 xl:-mt-20 2xl:-mt-20">
-        <div
-          className="
-                        md:block /* For MD: h2 and text block stack */
-                        lg:block /* For LG: h2 and text block stack */
-                        xl:flex xl:flex-row xl:space-x-29 items-start 2xl:gap-5 /* For XL/2XL: h2 and text/button block are side-by-side */
-                        "
-        >
-          <div>
-            <h2 data-aos="fade-up" className="text-[30px] md:text-4xl lg:text-[42px] font-semibold text-[#010A12] max-w-3xl">
+      <div
+        data-aos="fade-up"
+        className="px-4 md:px-6 lg:px-10 xl:px-10 2xl:px-12 max-w-[1550px] mx-auto 2xl:max-w-[1905px] -mt-20 md:-mt-4 lg:-mt-20 xl:-mt-20 2xl:-mt-20"
+      >
+        <div className="md:block lg:block xl:flex xl:flex-row xl:space-x-32 items-start  2xl:space-x-62">
+          <div className="2xl:w-[49ch]">
+            <h2
+              data-aos="fade-up"
+              className="text-[30px] md:text-4xl lg:text-[42px] 2xl:text-[54px] font-semibold text-[#010A12] max-w-3xl 2xl:max-w-[100ch]"
+            >
               Our proven solution
             </h2>
           </div>
-          {/* Inner container for paragraph and button */}
+
+          {/* Paragraph + Button container */}
           <div
-            className="text-sm md:text-base lg:text-[17px] text-[#0A1B2A] leading-relaxed max-w-full md:max-w-[100%] xl:max-w-[83ch] 2xl:max-w-[93ch]
-                          md:flex md:justify-between md:items-end md:gap-4 /* NEW: For MD, Paragraph and button are side-by-side */
-                          lg:flex lg:justify-between lg:items-end lg:gap-4 /* For LG: Paragraph and button are side-by-side */
-                          xl:block /* Revert to block display for XL/2XL: Paragraph and button stack */
-                          "
+            className="z-1 text-[16px] xl:text-[17px] 2xl:text-[18px] text-[#010A12] leading-relaxed max-w-full md:max-w-[100%] xl:max-w-[83ch] 2xl:max-w-[100ch]
+        md:flex md:justify-between md:items-end md:gap-4
+        lg:flex lg:justify-between lg:items-end lg:gap-4
+        xl:block"
           >
-            {/* The paragraph tag itself */}
-            <p data-aos="fade-up" className="md:max-w-[53ch] lg:max-w-[80ch]">
+            <p className="md:hidden md:max-w-[52ch] lg:max-w-[68ch] xl:max-w-[84ch] 2xl:max-w-[100ch]">
               Positive Input Ventilation (PIV) systems work tirelessly to
               circulate fresh, filtered air throughout your home, effectively
               minimizing humidity and condensation levels by as much as 90%. The
@@ -197,38 +196,58 @@ export default function ProvenSolution() {
               successfully installed, homeowners are experiencing these benefits
               firsthand.
             </p>
-            {/* Button wrapper div */}
-            <div data-aos="fade-up"
-              className="mt-6 flex flex-row justify-center /* Base styles for sm: stacked, centered */
-                            md:w-auto md:justify-end md:mt-0 md:ml-auto /* NEW: For MD: button aligns to end, no top margin, pushed right */
-                            lg:w-auto lg:justify-end lg:mt-0 lg:ml-auto /* For LG: button aligns to end, no top margin, pushed right */
-                            xl:justify-start xl:mt-8 xl:ml-0 xl:mr-auto xl:w-auto /* For XL/2XL: revert to stacked, left-aligned, restore margin */
-                            "
+
+            <p
+              data-aos="fade-up"
+              className="hidden md:block md:max-w-[52ch] lg:max-w-[68ch] xl:max-w-[84ch] 2xl:max-w-[100ch]"
             >
-              <button
-                className="lt-semibold bg-[#B6E2FB] text-[#010A12] text-sm rounded-md px-6 py-3 inline-flex items-center hover:bg-[#a0c9f7] transition w-full md:w-auto justify-center gap-2"
-                type="button"
-              >
-                how PIV works
-                <Image
-                  src="/icons/right-up.svg"
-                  alt="Right up arrow"
-                  width={10}
-                  height={16}
-                />
-              </button>
+              Positive Input Ventilation (PIV) systems work tirelessly to
+              circulate fresh, filtered air throughout your home, effectively
+              minimizing humidity and condensation levels by as much as 90%. The
+              advantages of this technology include healthier indoor air
+              quality, a significant reduction in mold and mildew growth, and an
+              overall enhancement in comfort. With more than a million PIV units
+              successfully installed, homeowners are experiencing these benefits
+              firsthand.
+            </p>
+
+            {/* ✅ Button wrapper */}
+            <div
+              data-aos="fade-up"
+              className="
+          mt-6 w-full block
+          md:flex md:w-auto md:justify-end md:mt-0 md:ml-auto
+          lg:w-auto lg:justify-end lg:mt-0 lg:ml-auto
+          xl:justify-start xl:mt-8 xl:ml-0 xl:mr-auto xl:w-auto
+        "
+            >
+              <Link href="/how-piv-works">
+                <button
+                  type="button"
+                  className="lt-semibold bg-[#B6E2FB] text-[#010A12] text-[16px] 2xl:text-[18px] rounded-md px-5 md:px-6 py-4 inline-flex items-center hover:bg-[#a0c9f7] transition w-full mx-auto md:max-w-none md:mx-0 justify-center gap-2 cursor-pointer"
+                >
+                  how PIV works
+                  <Image
+                    src="/icons/right-up.svg"
+                    alt="Right up arrow"
+                    width={10}
+                    height={16}
+                  />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
 
-        <hr className="my-6 lg:my-10 border-t border-gray-300" />
+        <hr className="my-6 md:my-10 border-t border-gray-300" />
 
-        {/* Carousel */}
-        <div data-aos="fade-up" className="relative -mt-20 md:-mt-50 lg:-mt-34">
-          {/* Image Gallery */}
+        <div
+          data-aos="fade-up"
+          className="relative -mt-10 md:-mt-50 lg:-mt-20 drop-shadow-[30px_5px_30px_rgba(107,114,128,0.1)] md:drop-shadow-[0_90px_50px_rgba(107,114,128,0.25)]"
+        >
           <div
             ref={galleryRef}
-            className="flex space-x-4 overflow-x-auto scrollbar-hide mb-4"
+            className="flex space-x-4 overflow-x-auto scrollbar-hide pb-1 md:pb-4"
             style={{
               scrollPaddingLeft: "1.5rem",
               scrollPaddingRight: "1.5rem",
@@ -238,7 +257,8 @@ export default function ProvenSolution() {
               <Image
                 key={i}
                 alt={`PIV view ${i + 1}`}
-                className="flex-shrink-0 w-[90vw] sm:w-[500px] md:w-[600px] lg:w-[800px] h-[60vh] sm:h-[70vh] md:h-[850px] rounded-lg object-contain drop-shadow-[10px_10px_10px_rgba(107,114,128,0.6)]"
+                // className="flex-shrink-0 w-[95vw] sm:w-[500px] md:w-[600px] lg:w-[800px] h-[40vh] sm:h-[60vh] md:h-[750px] rounded-lg object-contain drop-shadow-[30px_5px_30px_rgba(107,114,128,0.1)] md:drop-shadow-[35px_20px_30px_rgba(107,114,128,0.12)]"
+                className="flex-shrink-0 w-[80vw] sm:w-[500px] md:w-[600px] lg:w-[800px] h-[40vh] sm:h-[60vh] md:h-[750px] 2xl:w-[900px] rounded-lg object-contain "
                 height={450}
                 src="/images/3.webp"
                 width={800}
@@ -247,8 +267,7 @@ export default function ProvenSolution() {
             ))}
           </div>
 
-          {/* Scrollbar */}
-          <div data-aos="fade-up" className="-mt-10 md:-mt-46 lg:-mt-30 xl:-mt-28">
+          <div className="absolute bottom-[10px] md:bottom-[120px] lg:bottom-[40px] left-0 right-0 z-20">
             <div
               ref={scrollTrackRef}
               aria-hidden="true"
@@ -264,7 +283,7 @@ export default function ProvenSolution() {
                 alt="Drag handle"
                 width={62}
                 height={62}
-                className="flex-shrink-0 mt-[14px]" // tighter vertical space
+                className="flex-shrink-0 mt-[14px]"
                 onMouseDown={handleInteractionStart}
                 onTouchStart={handleInteractionStart}
                 style={{

@@ -19,11 +19,17 @@ export default function Home() {
     <div>
       <Header />
       <HappyCustomers />
-      <PIVUnit />
+      <div className="md:px-4 lg:px-0">
+        <PIVUnit />
+      </div>
       <DampCondensation />
-      <Solution />
+      <div className="md:px-4 lg:px-0">
+        <Solution />
+      </div>
       <WhyChooseUs />
-      <System />
+      <div className="md:px-4 lg:px-0">
+        <System />
+      </div>
       <Faq />
       <Footer />
     </div>

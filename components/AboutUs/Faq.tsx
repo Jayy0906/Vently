@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -27,7 +28,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openStates, setOpenStates] = useState(faqs.map(() => false));
+  const [openStates, setOpenStates] = useState(faqs.map((_, i) => i === 0));
 
   const toggleFAQ = (index: number) => {
     setOpenStates((prev) =>
@@ -36,17 +37,24 @@ export default function FAQ() {
   };
 
   return (
-    <div data-aos="fade-up"
-      className={`text-[#010A12] mt-20 max-w-[1550px] mx-auto px-4 sm:px-10 md:px-6 lg:px-4 2xl:px-6`}
+    <div
+      data-aos="fade-up"
+      
+      className={`text-[#010A12] mt-0 md:mt-20 max-w-[1550px] 2xl:max-w-[1905px] mx-auto px-4 sm:px-10 md:px-6 lg:px-4 2xl:px-10`}
     >
-      {/* Header Row */}
+      {/* Header */}
       <div className="flex justify-between items-center md:mb-10">
-        <h1 data-aos="fade-up" className="text-[25px] md:text-4xl lg:text-[48px] leading-[48px] lt-semibold">
+        <h1
+          data-aos="fade-up"
+          className="text-[25px] md:text-4xl lg:text-[48px] 2xl:text-[54px] leading-[48px] lt-semibold"
+        >
           FAQ
         </h1>
-        <button data-aos="fade-up"
+        <Link href="/#faq">
+        <button
+          data-aos="fade-up"
           type="button"
-          className="hidden md:flex items-center gap-2 bg-[#B6E2FB] text-[#010A12] lt-semibold text-[14px] font-normal leading-[20px] rounded-lg px-4 py-2 hover:bg-[#A9D4FF] transition cursor-pointer"
+          className="hidden md:flex items-center gap-2 bg-[#B6E2FB] text-[#010A12] lt-semibold text-[16px] 2xl:text-[18px] lt-semibold leading-[20px] rounded-lg px-4 py-4 hover:bg-[#A9D4FF] transition cursor-pointer"
         >
           <span>view all faqs</span>
           <Image
@@ -56,6 +64,7 @@ export default function FAQ() {
             height={16}
           />
         </button>
+        </Link>
       </div>
 
       {/* FAQ + CTA layout */}
@@ -64,11 +73,15 @@ export default function FAQ() {
         <div className="flex-1 divide-y divide-[#D9D9D9]">
           {faqs.map((faq, index) => (
             <div key={index} className="py-4">
-              <div data-aos="fade-up"
+              <div
+                data-aos="fade-up"
                 className="flex justify-between items-start cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <p data-aos="fade-up" className="text-[16px] font-medium leading-[24px] mb-1 lt-semibold">
+                <p
+                  data-aos="fade-up"
+                  className="text-[16px] 2xl:text-[20px] leading-[24px] mb-1 lt-semibold"
+                >
                   {faq.question}
                 </p>
                 <Image
@@ -80,7 +93,7 @@ export default function FAQ() {
                 />
               </div>
               {openStates[index] && (
-                <p  className="text-[16px] font-normal leading-[20px] text-[#010A12]/80 max-w-3xl pt-2 pb-1 transition-all duration-300 ease-in-out">
+                <p className="text-[16px] 2xl:text-[18px] font-normal leading-[20px] text-[#010A12]/80 max-w-3xl pt-2 pb-1 transition-all duration-300 ease-in-out">
                   {faq.answer}
                 </p>
               )}
@@ -88,8 +101,11 @@ export default function FAQ() {
           ))}
         </div>
 
-        {/* CTA Section - Side by side only on lg+ */}
-        <div data-aos="fade-up" className="bg-[#B6E2FB] rounded-[24px] px-6 py-4 lg:w-[400px] xl:w-[580px]">
+        {/* CTA Section */}
+        <div
+          data-aos="fade-up"
+          className="bg-[#B6E2FB] rounded-[24px] px-6 py-4 lg:w-[400px] xl:w-[580px] 2xl:w-[640px]"
+        >
           <div className="text-left">
             <div data-aos="fade-up" className="flex items-center">
               <Image
@@ -100,14 +116,22 @@ export default function FAQ() {
                 className="mr-2"
               />
             </div>
-            <h2 data-aos="fade-up" className="text-[17px] md:text-[30px] lg:text-[20px] xl:text-[30px] leading-tight text-[#010A12] my-6 lt-semibold">
+            <h2
+              data-aos="fade-up"
+              className="text-[18px] md:text-[30px] lg:text-[21px] xl:text-[30px] 2xl:text-[36px] xl:max-w-[28ch] 2xl:max-w-[75ch] leading-tight text-[#010A12] my-6 lt-regular"
+            >
               Resolve Your Damp Problem Today —<br /> Easy Online Booking, Zero
               Deposit
             </h2>
           </div>
-          <button data-aos="fade-up" className="w-full md:w-[200px] bg-white text-[#010A12] text-base lt-semibold py-3 md:mt-8 lg:mt-6 xl:mt-8 md:mb-2 lg:mb-1 xl:mb-2 rounded-xl shadow-md hover:bg-gray-100 transition cursor-pointer">
-            book your installation
-          </button>
+          <Link href="/contact-us">
+            <button
+              data-aos="fade-up"
+              className="w-full md:w-auto bg-white text-[#010A12] text-[16px] lt-semibold py-3 px-4 md:mt-8 lg:mt-6 xl:mt-8 md:mb-2 lg:mb-1 xl:mb-2 rounded-xl shadow-md hover:bg-gray-100 transition cursor-pointer"
+            >
+              book your installation
+            </button>
+          </Link>
         </div>
       </div>
     </div>

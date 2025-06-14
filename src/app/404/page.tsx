@@ -1,4 +1,3 @@
-
 import Header from "../../../components/404/Header";
 import Footer from "../../../components/Footer";
 

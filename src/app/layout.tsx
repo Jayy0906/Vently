@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./styles/fonts.css";
-import AOSProvider from './AOSProvider';
+import AOSProvider from "./AOSProvider";
 
 export const metadata: Metadata = {
   title: "Vently",
@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AOSProvider> 
-        {children}
-        </AOSProvider> 
+        <AOSProvider>{children}</AOSProvider>
       </body>
     </html>
   );

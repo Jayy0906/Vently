@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const understandItems = [
@@ -41,7 +42,7 @@ const understandItems = [
       "Remove moisture and contaminants, dramatically improving your family’s respiratory health.",
     description:
       "How PIV Helps: By eliminating damp conditions and reducing airborne contaminants, PIV promotes healthier breathing environments.",
-    image: "/images/Protect Your Family’s Respiratory Health.webp",
+    image: "/images/Protect Your Family Respiratory Health.webp",
   },
   {
     id: 5,
@@ -52,7 +53,7 @@ const understandItems = [
       "Filter pollen and dust, greatly reducing indoor allergens and allergy symptoms.",
     description:
       "How PIV Helps: PIV units effectively filter incoming air, dramatically reducing pollen and allergen exposure indoors.",
-    image: "/images/Relief from Hay Fever & Allergies.webp",
+    image: "/images/Relief from Hay Fever and Allergies.webp",
   },
   {
     id: 6,
@@ -63,7 +64,7 @@ const understandItems = [
       "Refresh your home's air quality and eliminate common indoor health issues.",
     description:
       "How PIV Helps: Continuous airflow from PIV systems displaces stale, pollutant-laden air, improving indoor comfort and wellbeing.",
-    image: "/images/Boost Comfort, Banish Indoor Illness.webp",
+    image: "/images/Boost Comfort Banish Indoor Illness.webp",
   },
   {
     id: 7,
@@ -79,108 +80,124 @@ const understandItems = [
 
 export default function UnderstandSectionHero() {
   return (
-    <>
-      <section data-aos="fade-up" className="w-full px-4 md:px-8 lg:px-12 xl:px-12">
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
-          {understandItems.map((item, index) => (
-            <div key={item.id} className="flex flex-col gap-6">
-              {index !== 0 && (
-                <hr
-                  data-aos="fade-up"
-                  className="border-t border-gray-300 -mt-8"
-                />
-              )}{" "}
-              <div className="flex flex-col lg:flex-row items-center gap-6">
-                {/* Text Block - Now responsive for vertical distribution */}
-                <div className="flex-1 w-full flex flex-col gap-3 lg:justify-between lg:min-h-[500px]">
-                  {/* Title at top */}
+    <section
+      data-aos="fade-up"
+      className="w-full px-4 md:px-6 lg:px-12 xl:px-12"
+    >
+      <div className="max-w-[1440px] 2xl:max-w-[1905px] mx-auto flex flex-col gap-16">
+        {understandItems.map((item, index) => (
+          <div key={item.id} className="flex flex-col gap-6">
+            {index !== 0 && (
+              <hr
+                data-aos="fade-up"
+                className="border-t border-gray-300 -mt-4"
+              />
+            )}
+            <div className="flex flex-col lg:flex-row lg:items-stretch gap-6">
+              {/* Text Section - Now using flex-col justify-between */}
+              <div className="flex-1 w-full flex flex-col justify-between lg:min-h-[500px]">
+                <div className="space-y-6 mt-5">
+                  {/* Title aligned to top */}
                   <h3
                     data-aos="fade-up"
-                    className="text-xl md:text-2xl lg:text-4xl xl:text-5xl lt-semibold leading-tight text-gray-900 text-[#010A12]"
+                    className="text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-[54px] lt-semibold leading-tight text-[#010A12] 2xl:max-w-[18ch]"
                   >
                     {item.title}
                   </h3>
 
-                  {/* Middle Section: Issue, Benefit, Description */}
-                  <div className="flex-1 flex flex-col space-y-4">
+                  {/* Content with maintained spacing */}
+                  <div className="space-y-6">
                     {/* Issue */}
                     <div>
                       <span
                         data-aos="fade-up"
-                        className="inline-block px-2 py-1 text-[13px] font-medium text-[#F64242] bg-[#fdcece] rounded-xl mr-2"
+                        className="inline-block px-2 py-1 text-[17px] 2xl:text-[18px] lt-regular text-[#F64242] bg-[#fdcece] rounded-xl mr-2"
                       >
                         issue
                       </span>
                       <p
                         data-aos="fade-up"
-                        className="text-sm md:text-base lg:max-w-[52ch] mt-3"
+                        className="text-[17px] 2xl:text-[18px] text-[#010A12] lg:max-w-[52ch] mt-3"
                       >
                         {item.issue}
                       </p>
-                      <hr
-                        data-aos="fade-up"
-                        className="hidden md:block border-t border-gray-300 lg:w-112 mt-5"
-                      />
+                      <hr className="hidden md:block border-t border-gray-300 lg:w-112 mt-5" />
                     </div>
 
                     {/* Benefit */}
                     <div>
                       <span
                         data-aos="fade-up"
-                        className="inline-block px-2 py-1 text-[13px] lt-regular text-[#056C31] bg-[#b5edcd] rounded-xl mr-2"
+                        className="inline-block px-2 py-1 text-[17px] 2xl:text-[18px] lt-regular text-[#056C31] bg-[#b5edcd] rounded-xl mr-2"
                       >
                         benefit
                       </span>
                       <p
                         data-aos="fade-up"
-                        className="text-sm md:text-base mt-3"
+                        className="text-[17px] 2xl:text-[18px] text-[#010A12] mt-3"
                       >
                         {item.benefit}
                       </p>
-                      <hr
-                        data-aos="fade-up"
-                        className="hidden md:block border-t border-gray-300 lg:w-112 mt-5"
-                      />
+                      <hr className="hidden md:block border-t border-gray-300 lg:w-112 mt-5" />
                     </div>
 
                     {/* Description */}
                     <div>
                       <p
                         data-aos="fade-up"
-                        className="text-sm md:text-base lg:max-w-[52ch] mt-1"
+                        className="text-[#010A12] text-[17px] 2xl:text-[18px] lg:max-w-[52ch] 2xl:max-w-[51ch] mt-1"
                       >
                         {item.description}
                       </p>
-                      {/* <hr className="hidden md:block border-t border-gray-300 lg:w-112 mt-2" /> */}
                     </div>
                   </div>
-
-                  {/* Button at bottom */}
-                  <div data-aos="fade-up" className="lg:mt-">
-                    <button className="w-full lg:w-auto px-4 py-3 bg-[#B6E2FB] hover:bg-[#a0d8ff] text-sm text-[#010A12] lt-semibold rounded-lg shadow-sm transition-all cursor-pointer">
-                      Book a Survey →
-                    </button>
-                  </div>
                 </div>
 
-                {/* Image Block - Position remains unchanged */}
-                <div
-                  data-aos="fade-up"
-                  className="w-full lg:w-[610px] xl:w-[783px] flex-shrink-0 overflow-hidden rounded-xl shadow-lg border border-gray-200"
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover lg:h-[500px]"
-                  />
+                {/* Button aligned to bottom */}
+                <div data-aos="fade-up" className="mt-6 md:mt-0">
+                  <Link href="/contact-us">
+                    <button className="w-full lg:w-auto px-4 py-3 bg-[#B6E2FB] hover:bg-[#a0d8ff] text-[17px] 2xl:text-[18px] text-[#010A12] lt-semibold rounded-lg shadow-sm transition-all cursor-pointer flex items-center gap-2 justify-center">
+                      <span className="flex items-center gap-2 md:hidden">
+                        Book a Survey
+                        <Image
+                          src="/icons/right-up.svg"
+                          alt="Arrow icon"
+                          width={10}
+                          height={16}
+                        />
+                      </span>
+                      <span className="hidden md:flex items-center gap-2">
+                        {index < 3 ? "Book a Survey" : "Find out more"}
+                        <Image
+                          src="/icons/right-up.svg"
+                          alt="Arrow icon"
+                          width={10}
+                          height={16}
+                        />
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
+
+              {/* Image Block - unchanged */}
+              <div
+                data-aos="fade-up"
+                className="w-full lg:w-[610px] xl:w-[700px] flex-shrink-0 overflow-hidden shadow-xl shadow-gray-300 rounded-xl border border-gray-200 md:mt-6"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={600}
+                  height={400}
+                  quality={100}
+                  className="w-full h-auto object-cover lg:h-full"
+                />
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

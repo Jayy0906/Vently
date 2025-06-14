@@ -16,8 +16,12 @@ export default function HowPIVHelps() {
       <Header />
       <Hero />
       <Works />
-      <div className="-mt-20 md:-mt-0"><ProductOverview /></div>
-      <div className="mt-20"><Footer /></div>
+      <div className="-mt-20 md:-mt-10 xl:-mt-12">
+        <ProductOverview />
+      </div>
+      <div className="mt-20 md:mt-30 lg:mt-26 xl:mt-28">
+        <Footer />
+      </div>
     </>
   );
 }
